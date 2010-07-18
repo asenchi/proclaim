@@ -3,7 +3,7 @@ import redis
 
 redis = redis.Redis()
 
-class Rollout(object):
+class Proclaim(object):
 	def __init__(self, redis):
 		self.redis = redis
 		self.groups = { "all": set() }
@@ -38,7 +38,7 @@ class Rollout(object):
 		self.redis.set(_percentage_key(feature), percentage)
 		
 	def deactivate_percentage(self, feature, percentage):
-		self.redis.set(_percentage_key(feature), percentage)
+		self.redis.del(_percentage_key(feature), percentage)
 		
 	def _activate(self, feature, target):
 		self.redis.sadd(_group_key(feature), target)
@@ -58,9 +58,12 @@ class Rollout(object):
 	def _percentage_key(name):
 		return "%s:percentage" % (_key(name))
 	
-	# XXX: TODO
 	def _user_in_active_group(self, feature, user):
-		pass
+		active_groups = self.redis.smembers(_group_key(feature))
+		for grp in active_groups:
+			if user in groups[grp]:
+				return True
+		return False
 	
 	def _user_active(self, feature, user):
 		self.redis.sismember(_user_key(feature), user.id)
