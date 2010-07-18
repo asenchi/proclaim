@@ -1,0 +1,8 @@
+Proclaim
+========
+
+Conditionally roll out features with Redis.
+
+This is a very early clone of James Golick's rollout (http://github.com/jamesgolick/rollout).
+
+Will finish tests soon.
