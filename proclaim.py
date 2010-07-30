@@ -45,11 +45,12 @@ class Proclaim(object):
         self.redis.delete(_percentage_key(feature), percentage)
 
     def _user_in_active_group(self, feature, user):
-        active_groups = self.redis.smembers(_group_key(feature))
-        for grp in active_groups:
-            if grp in self.groups:
-                if user.id in self.groups[grp]:
-                    return True
+        if self.redis.exists(_group_key(feature)):
+            active_groups = self.redis.smembers(_group_key(feature))
+            if active_groups:
+                for grp in active_groups:
+                    if user.id in self.groups[grp]:
+                        return True
         return False
     
     def _user_active(self, feature, user):
@@ -58,10 +59,11 @@ class Proclaim(object):
         return False
         
     def _user_within_active_percentage(self, feature, user):
-        percentage = self.redis.get(_percentage_key(feature))
-        if not percentage:
-            return False
-        user.id % 10 < int(percentage) / 10
+        if self.redis.exists(_percentage_key(feature)):
+            percentage = self.redis.get(_percentage_key(feature))
+            if int(user.id) % 10 < int(percentage) / 10:
+                return True
+        return False
 
 def _key(name):
     return "feature:%s" % name
