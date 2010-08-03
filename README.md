@@ -16,3 +16,10 @@ Activate 20% of users to view 'feature':
 
 Works with groups and users. User should have an 'id', Proclaim uses it to
 verify whether user is 'active'.
+
+# Copyright
+
+Copyright @ 2010 James Golick
+Copyright @ 2010 Curt Micol
+
+See LICENSE for details.
