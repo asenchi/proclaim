@@ -20,6 +20,7 @@ verify whether user is 'active'.
 # Copyright
 
 Copyright @ 2010 James Golick
+
 Copyright @ 2010 Curt Micol
 
 See LICENSE for details.
