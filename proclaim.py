@@ -1,5 +1,4 @@
 
-import redis
 
 class Proclaim(object):
     def __init__(self, redis):
