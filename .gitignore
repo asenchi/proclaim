@@ -5,3 +5,4 @@ dist/
 dump.rdb
 *.tmproj
 *.*.swp
+*.egg-info
