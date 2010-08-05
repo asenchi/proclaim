@@ -5,7 +5,7 @@ except ImportError:
 
 setup(
     name="proclaim",
-    version="0.3",
+    version="0.5",
     description="Conditionally roll out features with Redis",
     long_description="""
     Conditionally roll out features with Redis by assigning
@@ -18,7 +18,7 @@ setup(
     download_url="http://github.com/asenchi/proclaim/downloads",
     keywords="redis rollout",
     classifiers = [
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 5 - Alpha",
         "Intended Audience :: Developers",
         "Intended Audience :: Web Developers",
         "License :: OSI Approved :: MIT License",
