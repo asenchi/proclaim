@@ -6,7 +6,7 @@ class Proclaim(object):
         self.redis = redis
         self.groups = { "all": [] }
 
-    def active_group(self, feature, group):
+    def activate_group(self, feature, group):
         if group in self.groups:
             self.redis.sadd(_group_key(feature), group)
 

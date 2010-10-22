@@ -23,8 +23,8 @@ class TestProclaim(unittest.TestCase):
         assert len(self.proclaim.groups["b"]) == 3
         assert jim.id in self.proclaim.groups["a"]
 
-    def test_active_group(self):
-        self.proclaim.active_group("f1", "b")
+    def test_activate_group(self):
+        self.proclaim.activate_group("f1", "b")
         assert self.proclaim.is_active("f1", jim)
 
     def test_deactivate_group(self):
