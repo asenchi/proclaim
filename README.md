@@ -2,9 +2,9 @@
 
 Conditionally roll out features with Redis.
 
-Based on James Golick's 'rollout': http://github.com/jamesgolick/rollout
+Based on James Golick's [rollout](http://github.com/jamesgolick/rollout).
 
-# Usage
+## Usage
 
 Activate 20% of users to view 'feature':
 
@@ -17,10 +17,9 @@ Activate 20% of users to view 'feature':
 Works with groups and users. User should have an 'id', Proclaim uses it to
 verify whether user is 'active'.
 
-# Copyright
+## Copyright
 
-Copyright @ 2010 James Golick
+Copyright © 2010 James Golick
+Copyright © 2010 Curt Micol
 
-Copyright @ 2010 Curt Micol
-
-See LICENSE for details.
+See `LICENSE` for details.
